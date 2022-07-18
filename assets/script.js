@@ -8,15 +8,13 @@
 // if  moment() < time-blokcs => future
 //step 4: grap the textarea value and store it in localstorage
 
-var timeBlocksArr=[9,10,11] //translate time-blocks to military times
+var timeBlocksArr=[9,10,11,12,1,2,3,4,5] //translate time-blocks to military times
 
 var currenthour= moment().hour()
-           
-var currentDay =$("#currentDay")  // document.querySelector("#currentDay")
 console.log(currenthour)
+           
 
-var systemTime=moment().format("dddd, MMMM Do")
-currentDay.text(systemTime)   // currentDay.textContent=systemTime
+
 
 function displayTimeBlockColors(){
     for(var i=0; i < timeBlocksArr.length;i++){
@@ -33,7 +31,9 @@ function displayTimeBlockColors(){
          else if(currenthour < timeBlocksArr[i]){
             currentTextEl.addClass("future") 
          }
-    }
-}
+      }
+   }
 
-displayTimeBlockColors()
+   displayTimeBlockColors()
+
+   $("#currentDay").text(moment().format("dddd, MMMM Do"));
